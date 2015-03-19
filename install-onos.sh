@@ -53,6 +53,6 @@ sudo apt-get -y install bison flex libqt4-dev libgtk-3-dev libpcap-dev zlib1g-de
 wget https://1.eu.dl.wireshark.org/src/wireshark-1.12.4.tar.bz2
 sudo tar -jxvf wireshark-1.12.4.tar.bz2 -C /usr/local
 cd /usr/local/wireshark-1.12.4/
-sudo ./configure --with-ssk
+sudo ./configure --with-ssl
 make &
 sudo make install

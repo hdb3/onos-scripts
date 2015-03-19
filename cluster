@@ -1,0 +1,10 @@
+# ONOS test cluster configuration with mininet
+ONOS_CELL=cluster
+export OCI="172.16.1.6"
+export OC1="172.16.1.6"
+export OC2="172.16.1.9"
+export OC3="172.16.1.10"
+export OCN="172.16.1.8"
+export ONOS_FEATURES="jpa,config,standard,region,package,kar,ssh,management,webconsole,onos-api,onos-core,onos-cli,onos-openflow,onos-app-mobility,onos-app-tvue,onos-gui,onos-app-ifwd"
+export ONOS_NIC="172.16.1.*"
+
