@@ -1,0 +1,18 @@
+This is the complete mininet configuration and code for running the SDNIP (BGP) demo for ONOS.
+This version differs from the original demo in that ONOS is not bundeled in the VM, and that the build of the entire VM is exposed,
+i.e. I give a script to construct the VM from a bare Ubuntu image.
+The pre-ingredients to do this are:
+install openvswitch (I do this by building and installing a complete debian package which ensures that the latest version of OVS is used)
+install mininet (again, this is done from source to ensure that the latest version is used)
+
+INSTALL NOTES
+The connection from the home BGP instance (a quagga, called 'bgp' in the mininet topology) to the external BGP speaker in ONOS, requires two tweaks:
+
+1) set a route in the home BGP network configuration for connecting to onos.  This route merely has to send the BGP traffic to the 'root' host, using an interface which is already created in the demo for connecting to local ONOS.  I do this by issuing the following command AFTER mininet has launched: 'bgp route add default gw 10.10.10.2'.
+2) in the mininet host environment configure NAT with iptables in order to deliver the traffic to the external ONOS instance: 'sudo iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE'
+2a) enable IP packet forwarding: 'echo 1 > /proc/sys/net/ipv4/ip_forward'.
+
+Run mininet thusly: 'sudo mn --custom tutorial.py --topo sdnip --controller remote,ip=172.16.0.90' - note, the command should be run in the directory containg the configs sub-directory.
+
+
+thats it!
