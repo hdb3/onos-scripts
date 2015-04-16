@@ -50,7 +50,7 @@ sudo ln -s /usr/local/apache-maven-3.2.5/bin/mvnDebug /usr/local/bin/
 
 # Install wireshark
 sudo apt-get -y install bison flex libqt4-dev libgtk-3-dev libpcap-dev zlib1g-dev libssl-dev
-wget https://1.eu.dl.wireshark.org/src/wireshark-1.12.4.tar.bz2
+wget https://www.wireshark.org/download/src/wireshark-1.12.4.tar.bz2
 sudo tar -jxvf wireshark-1.12.4.tar.bz2 -C /usr/local
 cd /usr/local/wireshark-1.12.4/
 sudo ./configure --with-ssl
